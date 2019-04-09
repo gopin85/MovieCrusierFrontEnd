@@ -1,0 +1,5 @@
+<div class="movie-container">
+  <p *ngIf="movies.length==0" id="no-movies">No movies found in watchlist</p>
+  <mat-paginator [length]="movies?.length" [pageIndex]="page" [pageSize]="pageSize" [pageSizeOptions]="[5,10,15]" (page)="pageEvent=onPagerChange($event)"></mat-paginator>
+  <watchlisted-movie-details *ngFor="let movie of movies" [movieDetails]="movie"></watchlisted-movie-details>
+</div>

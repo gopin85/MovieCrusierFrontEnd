@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="post-title">{{movie?.title}}</h3>
+    <div class="ad-left">
+        <img class="movie-image" [src]="movie?.poster_path" [alt]="movie?.title">
+    </div>
+    <div class="ad-right">
+        <h4>Overview: <strong>{{movie?.overview}}</strong></h4>
+        <h4>Release Date:<strong>{{movie?.release_date}}</strong></h4>
+        <h4>Vote Average:<strong>{{movie?.vote_average}}</strong></h4>
+        <h4>Vote Count:<strong>{{movie?.vote_count}}</strong></h4>
+    </div>
+    <div class="ad-right"  *ngIf="movie?.is_WishList_Added">
+        <input type="text" id='commentinput' class="form-control" placeholder="add comment" value={{movie?.comments}}
+                aria-describedby="basic-addon1" #name>
+        <button id='addCommentButton' (click)="addComment(name.value)">Add / Update comment</button>
+    </div>    
+    <div class="ad-right">
+        <button mat-button id='addToWatchlistButton' *ngIf="!movie?.is_WishList_Added" (click)="addToWatchlist()" class="primary">Add
+            to watchlist</button>
+        <button mat-button id='removeFromWatchlistButton' *ngIf="movie?.is_WishList_Added" (click)="removeFromWatchlist()"
+            class="primary">Remove from watchlist</button>
+    </div>    
+</div>

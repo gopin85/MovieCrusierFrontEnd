@@ -1,0 +1,106 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Registration</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row main">
+            <div class="main-login main-center">
+                <h5 class="main-login main-center">User Registration </h5>
+                <div>
+                    <div *ngIf="validationErrors?.length>0" class="alert alert-danger" style="padding-left: 80px;">{{validationErrors}}</div>
+                    <form class="" method="post" action="#">
+
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">User Id</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input class="form-control" id="userId" required="true" type="text" placeholder="User Id"
+                                        name="User Id" type="text" [(ngModel)]="userId" required #userIdTextBoxControl="ngModel"
+                                        [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <div class="alert-danger" *ngIf="userIdTextBoxControl.errors && (userIdTextBoxControl.dirty || userIdTextBoxControltouched)">
+                                    <p *ngIf="userIdTextBoxControl.errors.required"> User Id is required</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input class="form-control" id="password" required="true" placeholder="Password"
+                                        name="Password" type="password" [(ngModel)]="password" required
+                                        #passwordTextBoxControl="ngModel" [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <div class="alert-danger" *ngIf="passwordTextBoxControl.errors &&( passwordTextBoxControl.dirty || passwordTextBoxControl.touched)">
+                                    <p *ngIf="passwordTextBoxControl.errors.required"> Password is required</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">Confirm Password</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
+                                        [(ngModel)]="confirmPassword" [(ngModel)]="confirmPassword" required
+                                        #confirmPasswordTextBoxControl="ngModel" required="true" [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <div class="alert-danger" *ngIf="confirmPasswordTextBoxControl.errors &&( confirmPasswordTextBoxControl.dirty || confirmPasswordTextBoxControl.touched)">
+                                    <p *ngIf="confirmPasswordTextBoxControl.errors.required"> Confirm Password is
+                                        required</p>
+                                </div>
+                                <div class="alert-danger" *ngIf="password && confirmPassword && password != confirmPassword">
+                                    <p>Password is not matching</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">First name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input class="form-control" id="firstName" required="true" name="First name"
+                                        placeholder="First Name" type="text" [(ngModel)]="firstName" required
+                                        #firstNameTextBoxControl="ngModel" [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <div class="alert-danger" *ngIf="firstNameTextBoxControl.errors &&( firstNameTextBoxControl.dirty || firstNameTextBoxControl.touched)">
+                                    <p *ngIf="firstNameTextBoxControl.errors.required"> First Name is required</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="cols-sm-2 control-label">Last name</label>
+                            <div class="cols-sm-10">
+                                <div class="input-group">
+                                    <input class="form-control" id="lastName" required="true" name="Last name"
+                                        placeholder="Last Name" type="text" [(ngModel)]="lastName" required
+                                        #lastNameTextBoxControl="ngModel" [ngModelOptions]="{standalone: true}" />
+                                </div>
+                                <div class="alert-danger" *ngIf="lastNameTextBoxControl.errors &&( lastNameTextBoxControl.dirty || lastNameTextBoxControl.touched)">
+                                    <p *ngIf="lastNameTextBoxControl.errors.required"> Last Name is required</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <button class="btn  btn-lg btn-block login-button" id="register" (click)="onSubmit()">Register</button>
+                            <button class="btn  btn-lg btn-block login-button" (click)="onCancel()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

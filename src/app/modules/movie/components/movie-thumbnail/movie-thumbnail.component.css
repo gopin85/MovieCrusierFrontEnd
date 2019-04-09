@@ -1,0 +1,21 @@
+.movie-thumbnail
+{
+    width:400px;
+    margin:10px;
+}
+.movie-image{
+    height:300px;
+}
+.movie-overview{
+    height: 80px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.example-full-width {
+    width: 100%;
+  }
+
+.mat-card-image:first-child{
+    margin-top:0px;
+}

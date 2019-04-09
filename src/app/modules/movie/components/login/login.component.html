@@ -1,0 +1,39 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5"></h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div class="login-box col-md-12">
+                        <form id="login-form" class="form" action="" method="post">
+                            <h3 class="text-center text-info">Login</h3>
+                            <div *ngIf="validationError?.length>0" class="alert alert-danger" style="padding-left: 80px;">{{validationError}}</div>
+                            <div class="form-group">
+                                <label for="username" class="text-info">User Id:</label><br>
+                                <input id="userLoginid" class="form-control" placeholder="User Id" name="userid"
+                                    [(ngModel)]="userid">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="text-info">Password:</label><br>
+                                <input id="passwordid" class="form-control" placeholder="Password" name="password"
+                                    [(ngModel)]="password" type="password">
+                            </div>
+                            <div class="form-group">
+                                <input type="Login" id="loginButton" name="Login" class="btn btn-info btn-md" (click)="loginUser()"
+                                    value="Login">
+                            </div>
+                            <div class="form-group">
+                                <button id="register" (click)="registerUser()" class="btn right btn-info btn-md">Register
+                                    here</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
